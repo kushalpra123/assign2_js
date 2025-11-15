@@ -5,16 +5,24 @@ class SmoothieMachine {
         this.milk = milk;
 }
 //a function inside a class is called a method
-describe(){
-return `
-<h3>Your smoothie Order:</h3>
-<p>Size: ${this.size}</p>
+describe() {
 
-<p>Ingredients: ${this.ingredients.join(", ")}</p> 
-<p>Milk: ${this.milk}</p>
-`
+    let ingredientHTML = "";
+
+    if (this.ingredients.length === 0) {
+        ingredientHTML = `<p>No ingredients selected</p>`;
+    } else {
+        ingredientHTML = `<p>Ingredients: ${this.ingredients.join(", ")}</p>`;
+    }
+
+    return `
+        <h3>Your Smoothie Order:</h3>
+        <p>Size: ${this.size}</p>
+        ${ingredientHTML}
+        <p>Milk: ${this.milk}</p>
+    `;
 }
-}        
+}      
 
 //adding event listener so that when the button is clicked the function runs
     document.getElementById("orderBtn").addEventListener("click",()=>{
