@@ -24,6 +24,13 @@ return `
 
     const milk = document.getElementById("milk").value;
 
+// Get all checked ingredients and convert to an array then map to their values
+    const ingredientChecks = document.querySelectorAll("input[type='checkbox']:checked");
+    const ingredients = Array.from(ingredientChecks).map(item => item.value);
 
-   
+    // Create the smoothie object
+    const smoothie = new SmoothieMachine(size, ingredients, milk);
+
+    // Output the description to the page
+    document.getElementById("output").innerHTML = smoothie.describe();
     });
